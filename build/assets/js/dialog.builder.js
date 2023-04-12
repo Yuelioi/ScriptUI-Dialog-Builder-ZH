@@ -763,8 +763,8 @@ var local_storage = {
         },
     },
     reText = {
-        tabs: " <br><br>You can nest VerticalTabbedPanels and TabbedPanels by inserting them inside a Tab item. <br><br>Visible tabs are selected on export (WYSIWYG).",
-        images: "Image formats: <code>jpg, png</code><br><br> Images are never uploaded to any server, they are stored locally in your browser.<br><br> Resize images before adding them to the dialog.<br><br> I would recommend small icon sizes. Any number of images will bump up the script file size quite a bit so you should use minimal amount of images. <br><br><strong class='warning'><span>警告:</span> Photoshop CC 2015-219</strong> For some reason JPEG files don't work in some PS versions. PNG files seem to work fine.<br>",
+        tabs: " <br><br>你可以通过在一个Tab项内插入VerticalTabbedPanels和TabbedPanels来嵌套它们。<br><br>可见的标签在导出时被选中（所见即所得）",
+        images: "图片格式: <code>jpg, png</code><br><br>图像永远不会上传到任何服务器，它们存储在本地浏览器中。<br><br>在将图像添加到对话框之前调整图像大小。<br><br>我建议使用小图标尺寸。 任何数量的图像都会大大增加脚本文件的大小，因此您应该使用最少数量的图像。 <br><br><strong class='warning'><span>警告：</span>Photoshop CC 2015-219</strong> 由于某些原因，JPEG 文件在某些 PS 版本中不起作用。 PNG 文件似乎工作正常。<br>",
     },
     item = { list: {} };
 (item.list.dialog = function (e) {
@@ -1030,7 +1030,7 @@ var local_storage = {
             addPanelIconClass: "fas fa-sliders-h",
             defaultStyle: { enabled: !0, varName: null, preferredSize: [0, 0], alignment: null, helpTip: null },
             stylePropInfo: "This item doesn't have any adjustable properties.",
-            editInfo: "Export outputs a static range from 0 to 100 with current value of 50 every single time.",
+            editInfo: "输出范围从0到100，当前值为50。",
             previewHtml:
                 '<div class="slider" data-item-type="' +
                 e.type +
@@ -1147,7 +1147,7 @@ var local_storage = {
             parent: !0,
             addPanelDivider: "above",
             addPanelIconClass: "fas fa-bars",
-            editInfo: '<strong>Valid child item:</strong> <br><i class="far fa-folder"></i> Tab.' + reText.tabs,
+            editInfo: '<strong>可用子项:</strong> <br><i class="far fa-folder"></i> Tab.' + reText.tabs,
             defaultStyle: { enabled: !0, varName: null, preferredSize: [0, 0], tabNavWidth: 0, margins: 0, alignment: null },
             previewHtml:
                 '<div class="group vertical-tabbed-panel orientation-row align-children-horizontal-left align-children-vertical-top" data-parent="true" data-item-type="' +
@@ -1165,7 +1165,7 @@ var local_storage = {
             label: "选项卡面板",
             parent: !0,
             addPanelIconClass: "fas fa-folder",
-            editInfo: '<strong>Valid child item:</strong> <br><i class="far fa-folder"></i> Tab.' + reText.tabs,
+            editInfo: '<strong>可用子项:</strong> <br><i class="far fa-folder"></i> Tab.' + reText.tabs,
             defaultStyle: { enabled: !0, varName: null, preferredSize: [0, 0], margins: 10, alignment: null },
             previewHtml:
                 '<div class="panel tabbed-panel" data-parent="true" data-item-type="' +
@@ -1184,9 +1184,7 @@ var local_storage = {
             parent: !0,
             addPanelDivider: "below",
             addPanelIconClass: "far fa-folder",
-            editInfo:
-                "Can be placed inside: <br><i class='fas fa-folder'></i> TabbedPanel, <br><i class='fas fa-bars'></i> VerticalTabbedPanel" +
-                reText.tabs,
+            editInfo: "可用放置于: <br><i class='fas fa-folder'></i> TabbedPanel, <br><i class='fas fa-bars'></i> VerticalTabbedPanel" + reText.tabs,
             defaultStyle: { enabled: !0, varName: null, text: "Tab", orientation: "column", spacing: 10, alignChildren: ["left", "top"] },
             previewHtml:
                 '<div class="panel tab" data-parent="true" data-item-type="' +
@@ -1204,7 +1202,7 @@ var local_storage = {
             label: "树状视图",
             parent: !0,
             addPanelIconClass: "fas fa-tree",
-            editInfo: '<strong>Valid child item:</strong> <br> <i class="fas fa-leaf"></i> TreeItem.',
+            editInfo: '<strong>可用子项:</strong> <br> <i class="fas fa-leaf"></i> TreeItem.',
             defaultStyle: { enabled: !0, varName: null, preferredSize: [0, 0], alignment: null },
             previewHtml:
                 '<div class="panel tree-view" data-parent="true" data-item-type="' +
@@ -1224,7 +1222,7 @@ var local_storage = {
             addPanelDivider: "below",
             addPanelIconClass: "fas fa-leaf",
             editInfo:
-                '<strong>Valid child item:</strong> <br> <i class="fas fa-leaf"></i> TreeItem. <br><br>You can expand or collapse these items in the dialog preview by clicking the arrows. <br><br> This item doesn&apos;t have creation properties, so unfortunately the variable name can&apos;t be used to find this item in the dialog object.',
+                '<strong>可用子项:</strong> <br> <i class="fas fa-leaf"></i> TreeItem. <br><br>您可以通过单击箭头在对话框预览中展开或折叠这些项目。 <br><br> 此项目没有创建属性，因此很遗憾，变量名称不能用于在对话框对象中查找此项目。',
             defaultStyle: { enabled: !0, varName: null, text: "TreeItem" },
             previewHtml:
                 '<div class="tree-view-item" data-parent="true" data-item-type="' +
@@ -2544,7 +2542,7 @@ var edit_style_panel = {
                     break;
                 case "orientation":
                     (l = $(
-                        '<h2 class="orientation-heading" title="子元素在容器中的布局方向。">方向</h2><h2 class="spacing-heading" title="相邻子元素之间的像素数。因为每个容器只包含单个子元素的行或列，所以容器只需要一个间距值。默认值基于容器类型，并选择与标准 Adobe UI 指南相匹配的值。">Spacing</h2><br><div class="orientation"><select name="qty" class="pretty-classic" data-edit="orientation"><option>row | 行</option><option>column | 列</option></select></div>'
+                        '<h2 class="orientation-heading" title="子元素在容器中的布局方向。">方向</h2><h2 class="spacing-heading" title="相邻子元素之间的像素数。因为每个容器只包含单个子元素的行或列，所以容器只需要一个间距值。默认值基于容器类型，并选择与标准 Adobe UI 指南相匹配的值。">Spacing</h2><br><div class="orientation"><select name="qty" class="pretty-classic" data-edit="orientation"><option>row</option><option>column</option></select></div>'
                     ))
                         .last()
                         .find('option:contains("' + t + '")')
@@ -2591,7 +2589,7 @@ var edit_style_panel = {
                             (w += '<option value="' + t + '">' + t + "</option>");
                     }),
                         (l = $(
-                            '<div class="alignment-container"><h2 title="此元素的对齐方式。如果已定义，则该值将覆盖父容器的alignChildren设置。">Alignment <span>(Self)</span></h2><div class="alignment-checkbox"><input type="checkbox" id="alignment-checkbox-input" name="" ' +
+                            '<div class="alignment-container"><h2 title="此元素的对齐方式。如果已定义，则该值将覆盖父容器的alignChildren设置。">对齐 <span>(自身)</span></h2><div class="alignment-checkbox"><input type="checkbox" id="alignment-checkbox-input" name="" ' +
                                 (b ? "" : "checked") +
                                 ' /><label for="alignment-checkbox-input"></label></div><br>' +
                                 ('<div id="alignment-' +
