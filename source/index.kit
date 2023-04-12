@@ -1,0 +1,128 @@
+
+<!-- @include _includes/header.kit -->
+
+<div id="wrap">
+	
+	<!-- @include _includes/1-panel-new-item.html -->
+	<!-- @include _includes/2-panel-tree-view.html -->
+	<!-- @include _includes/3-panel-edit-style.html -->
+	<!-- @include _includes/4-panel-snapshots.html -->
+
+	<div id="dialog-section">
+		
+		<div id="clipboard-export-spinner" style="display: none;">
+      <div class="center-1">
+        <div class="center-2">
+          <div class="center-3">
+            <div class="circle">
+              <img src="assets/images/clipboard-copy-spinner.gif" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+		
+		<div id="toolbar">
+	    <div class="sample-dialog animated bounceInDown">
+	      <span class="icon"><i class="fas fa-table"></i></span>
+				<div class="text">Sample</div>
+	    </div>
+	    <!-- <div class="snapshot animated bounceInDown">
+	      <span class="icon"><i class="fas fa-camera-retro"></i></span>
+				<div class="text">Snapshots</div>
+	    </div> -->
+	    <div class="reset animated bounceInDown">
+	      <span class="icon"><i class="far fa-trash-alt"></i></span>
+				<div class="text">Delete</div>
+	    </div>
+			<div class="import animated bounceInDown">
+	      <span class="icon"><i class="far fa-folder-open"></i></span>
+				<div class="text">Import</div>
+	    </div>
+			<div class="export animated bounceInDown">
+	      <span class="icon"><i class="far fa-share-square"></i></span>
+				<div class="text">Export</div>
+				<!-- <div class="download btn animated fadeInDown">
+					<div class="icon">
+						<i class="fas fa-check animated"></i>
+						<i class="fas fa-download"></i>
+					</div>
+					 <span>Download</span>
+				</div>
+					<div class="copy btn animated fadeInDown">
+						<div class="icon">
+							<i class="fas fa-check animated"></i>
+							<i class="fas fa-times animated"></i>
+							<i class="fas fa-clipboard-list"></i>
+						</div>
+						 <span>Copy to Clipboard</span>
+					</div>
+				</div> -->
+	    </div>
+		</div>
+		
+		<div id="dialog-overlay-wrap">
+			<div class="custom-cursor-ping"></div>
+			<div class="center-1">
+			  <div class="center-2">
+			    <div class="center-3">
+						
+						<div id="dialog" class="animated fadeIn"></div> <!-- #dialog -->
+						
+						<div id="bottom-left-toolbar">
+							<div class="grey-out-active animated fadeInRight" title="Toggle active item accent color visibility in the dialog preview.">
+								<i class="far fa-lightbulb"></i>
+							</div>
+							
+					    <div class="info animated fadeInRight" title="Instructions">
+					      <a target="_blank" class="icon" href="https://scriptui.joonas.me/docs/">
+									<img src="assets/images/graduation-cap-bold.svg" alt="">
+								</a>
+					    </div>
+							
+					    <div class="github animated fadeInRight" title="Github">
+					      <a target="_blank" href="https://github.com/joonaspaakko/ScriptUI-Builder-Joonas">
+									<i class="fab fa-github"></i>
+					      </a>
+					    </div>
+						</div>
+						
+						<div class="i-am-legend">
+							<table>
+								<tr class="l-export">
+									<td class="desc">Export to clipboard</td>
+									<td class="shortcut">Alt + E</td>
+								</tr>
+								<tr class="l-sort">
+									<td class="desc">Reorder items <small>(Structure Panel)</small></td>
+									<td class="shortcut">Drag</td>
+								</tr>
+								<tr class="l-duplicate">
+									<td class="desc">Duplicate item <small>(Structure Panel)</small></td>
+									<td class="shortcut">Alt + Drag</td>
+								</tr>
+								<tr class="l-collapse">
+									<td class="desc">Collapse parent item <small>(Structure Panel)</small></td>
+									<td class="shortcut">Double click</td>
+								</tr>
+								<tr class="l-collapse">
+									<td class="desc">Hide item <small></small></td>
+									<td class="shortcut">Right click <small>→</small> Hide</td>
+								</tr>
+								<tr class="l-collapse">
+									<td class="desc">Copy item path <small></small></td>
+									<td class="shortcut">Right click <small>→</small> Copy...</td>
+								</tr>
+							</table>
+						</div>
+						
+			    </div>
+			  </div>
+			</div>
+		</div>
+		
+	</div>
+	
+</div>
+
+<!-- @include _includes/footer.kit -->

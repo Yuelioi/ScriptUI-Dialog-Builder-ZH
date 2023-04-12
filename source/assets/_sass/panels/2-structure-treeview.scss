@@ -1,0 +1,315 @@
+
+#panel-tree-view-wrap {
+	font-weight: 400;
+  z-index: 11;
+} // #panel-tree-view-wrap
+
+#tree-view-contents {
+	position: relative;
+	
+  // Adds a tiny vertical line coming from the Dialog item in the
+  // situation where it is the only iteṁ. The idea here was to indicate
+  // that this is sort of where the treeview beings, but I felt it
+  // looked more distracting than helpful. A line does a poor job
+  // representing a full treeview... Just looks cleaner without it.
+  .tree-root > ul {
+    // padding-top: 4px;
+  }
+  
+  ul, li {
+    display: block;
+    margin: 0px;
+    padding-left: 0px;
+  }
+  
+  li {
+    padding:1px 0px 1px 17px;
+    line-height: 16px;
+  }
+	.item-text .txt {
+		display: inline-block;
+		vertical-align: middle;
+		max-width: 140px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	
+  .item-text {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    .type {
+      
+    }
+    .txt {
+      color: #999;
+    }
+  }
+	
+  .tree-dialog,
+  .tree-root {
+    padding: 0px;
+  }
+  .tree-dialog {
+    padding-top: 5px;
+  }
+	
+  .remove-item {
+    display: inline-block;
+    font-size: 10px;
+    vertical-align: middle;
+    margin-right: 4px;
+    &:hover {
+      color: rgb(233,30,79) !important;
+    }
+  }
+  
+	.item-text:hover {
+		// color: $color-accent-2;
+		color: #ebe6e6;
+	}
+
+  li.active > .item-text {
+    color: $color-accent;
+    > .remove-item,
+    li {
+      color: #dadada;
+    }
+    > .remove-item:hover {
+      color: rgb(233,30,79) !important;
+    }
+  }
+  
+	// INDENT GUIDES
+  // FIXME: This whole thing could probably be so much less complex has I used multiple background in a single element since the beginning.
+  $indent-guide-bg-size: 20px 26px;
+  .tree-root {
+    ul {
+      background: url('../images/indent-guides/indent-guide.svg') repeat-y top left;
+      background-size: $indent-guide-bg-size;
+    }
+    li {
+      background: url('../images/indent-guides/indent-guide-t-junction.svg') no-repeat left -4px, url("../images/indent-guides/indent-guide.svg") repeat-y top left;
+      background-size: $indent-guide-bg-size;
+    }
+    li:last-child {
+      background: url('../images/indent-guides/indent-guide-last.svg') no-repeat left -4px;
+      background-size: $indent-guide-bg-size;
+      background-color: rgba(83,83,83, .80);
+    }
+  }
+  
+  .active {
+    > ul {
+      background: url('../images/indent-guides/indent-guide-active.svg') repeat-y top left;
+      background-size: $indent-guide-bg-size;
+    }
+
+    > ul > li {
+      background: url('../images/indent-guides/indent-guide-active-t-junction.svg') no-repeat left -4px;
+      background-size: $indent-guide-bg-size;
+    }
+    > ul > li:last-child {
+      background: url('../images/indent-guides/indent-guide-active-last.svg') no-repeat left -4px;
+      background-size: $indent-guide-bg-size;
+      background-color: rgba(83,83,83, .80);
+    }
+  }
+  
+  ul.path-parent-ul {
+    background: url('../images/indent-guides/indent-guide-path.svg') repeat-y top left;
+    background-size: $indent-guide-bg-size;
+  }
+  li.path-sibling-node {
+    background: url('../images/indent-guides/indent-guide-path-t-junction-2.svg') no-repeat left -4px;
+    background-size: $indent-guide-bg-size;
+  }
+  
+  li.path-item {
+    background: url('../images/indent-guides/indent-guide-path-t-junction-2.svg') no-repeat left -4px;
+    background-size: $indent-guide-bg-size;
+  }
+  
+  li.path-start-node,
+  li.path-node {
+    background: url("../images/indent-guides/indent-guide-path-t-junction-3.svg") no-repeat left -4px, url("../images/indent-guides/indent-guide.svg") repeat-y top left;
+    background-size: $indent-guide-bg-size;
+  }
+  
+  li.path-start {
+    background: url('../images/indent-guides/indent-guide-path-t-junction-3.svg') no-repeat left -4px;
+    background-size: $indent-guide-bg-size;
+    background-color: rgba(83,83,83, .80);
+  }
+  
+  li.path-node:last-child,
+  li.path-start-last,
+  li.path-start-last:last-child {
+    background: url('../images/indent-guides/indent-guide-path-last.svg') no-repeat left -4px;
+    background-size: $indent-guide-bg-size;
+    background-color: rgba(83,83,83, .80);
+  }
+	
+  
+	li.path-end > .item-text {
+    // color: #b67fdc;
+    // font-weight: bold;
+	}
+	
+	.active-parent > .item-text {
+		// color: desaturate( lighten( adjust-hue($color-accent, 25), 10), 10);
+		// color: desaturate( lighten( adjust-hue($color-accent, 35), 10), 20);
+		// color: desaturate( lighten( adjust-hue($color-accent, 35), 20), 10);
+		// color: desaturate( #8692f5, 40);
+    // font-weight: bold;
+    .txt {
+      font-weight: normal;
+    }
+	}
+	.active-parent > .remove-item {
+    // color: #8692f5;
+		color: orange;
+		// color: #009dff;
+		// color: $color-accent-2;
+	}
+  
+  // Style for dragged items when sorting. Dragging new elements or duplicating elements looks different.
+  .dragged {
+    position: fixed;
+    opacity: .9;
+    z-index: 2000;
+    border: 1px solid $color-accent;
+		margin: 5px 0 0 15px;
+    box-shadow: 2px 4px 20px rgba(0,0,0,.4);
+    background: $color-bg !important;
+    padding: 3px 0px 0px 9px !important;
+    ul {
+      padding-bottom: 0px !important;
+      margin: 0px !important;
+    }
+    li[data-parent="true"] {
+      margin-bottom: 0px !important;
+    }
+
+  }
+  
+  li.placeholder {
+    position: relative;
+    border: 1px solid #777777;
+    height: 0px;
+    padding: 0px;
+    &:before { // A little disc that at least in theory gives a better idea of the current branch level when dragging things.
+      content:"";
+      position: absolute;
+      z-index: 999;
+      top: -4px;
+      left: -1px;
+      width: 5px;
+      height: 5px;
+      border-radius: 900px;
+      background: $color-bg;
+      border: 1px solid $color-accent;
+    }
+    &:after { // A little marker that attempts to give better idea where the item is actually going to land in terms of nesting.
+      content:"";
+      position: absolute;
+      z-index: 999;
+      top: -1px;
+      left: 19px;
+      width: 7px;
+      height: 2px;
+      background: #9d9d9d;
+    }
+  }
+
+  .item-crash-and-burn {
+    display: block;
+    height: 2px;
+    background: linear-gradient(to right, rgba(255,121,115,0) 0%,rgba(255,91,69,1) 50%,rgba(255,121,115,0) 100%);
+    box-shadow: 0 0 18px 1px rgb(227,31,31);
+    position: relative;
+    z-index: 99999;
+  }
+	.duplicate-parent,
+  .duplicate-parent .item-text,
+  .duplicate-parent > ul,
+  .duplicate-parent > ul > li {
+		color: rgba( #fff, .5 ) !important;
+	}
+	
+	li.collapsed {
+    padding-bottom: 8px !important;
+		.collapsed-icon {
+      width: 16px;
+      height: 8px;
+      float: left;
+      position: relative;
+      top: -.5px;
+      left: 15px;
+		}
+		> ul {
+			display: none;
+		}
+	}
+
+	.sdb-hidden > .item-text {
+		text-decoration: line-through !important;
+    opacity: .7 !important;
+	}
+	
+	// .structure-item-icon {
+	// 	padding-right: 5px;
+	// 	color: #f3a433;
+	// 	// color: $color_accent;
+	// 	// color: $color_accent_2;
+  //
+  //   font-size: 11px;
+  //   &.fa-object-group { color: #ff5a4f; }
+  //   &.fa-columns { color: #f46e44; }
+  //   &.fa-font { color: #f1d14b; }
+  //   &.fa-i-cursor { color: #cdf433; }
+  //   &.fa-toggle-on { color: #93f433; }
+  //   &.fa-strikethrough { color: #43f433; }
+  //   &.fa-check-square { color: #33f497; }
+  //   &.fa-dot-circle { color: #33f4e2; }
+  //   &.fa-caret-square-down { color: #33d1f4; }
+  //   &.fa-sliders-h { color: #339df4; }
+  //   &.fa-list-alt { color: #335df4; }
+  //   &.fa-image { color: #5433f4; }
+  //   &.fa-times-circle { color: #7c33f4; }
+  //   &.fa-bars { color: #aa33f4; }
+  //   &.fas.fa-folder { color: #ea33f4; }
+  //   &.far.fa-folder { color: #c9239f; }
+  //   &.fa-tree { color: #198030; }
+  //   &.fa-leaf { color: #00c62b; }
+	// }
+	
+} // #tree-view-contents
+
+
+// DRAGGING
+body.dragging, body.dragging * {
+  cursor: grab !important;
+}
+// DUPLICATING
+body.dragging.duplicate-item, body.dragging.duplicate-item * {
+	cursor: copy !important;
+}
+
+body.dragging #tree-view-contents .tree-dialog ul {
+  // padding-bottom: 2px;
+  padding-bottom: 4px;
+}
+// This creates a gap between parent items so that you can more easily drag items between them.
+body.dragging #tree-view-contents li[data-parent="true"] {
+  margin-bottom: 4px;
+}
+
+// DRAGGING TAB
+body.dragging.dragging-tab #panel-tree-view-wrap .tab {
+  margin-bottom: 0px;
+	 > ul:empty {
+     display: none;
+   }
+}
