@@ -18,11 +18,17 @@ generateHTML 函数: 用于显示UI项目, 增加了中文显示(Button | 按钮
 
 panel_edit_style_html
 
-其他
+其他内容
+
+### 汉化方式
+
+openai + deepl + google
 
 ## 网站（网络应用程序）
 
-ScriptUI 对话框生成器 (SDB) - [scriptui.joonas.me](https://scriptui.joonas.me)
+ScriptUI 对话框生成器 (SDB) 英文版 - [scriptui.joonas.me](https://scriptui.joonas.me)
+
+ScriptUI 对话框生成器 (SDB) 中文版 - [tool.yuelili.com/scriptui](https://tool.yuelili.com/scriptui/)
 
 ### 离线使用
 
